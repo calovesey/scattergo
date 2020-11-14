@@ -1,0 +1,70 @@
+<html>
+<body>
+<div style="color:#8888e2;font-size:50px">Coucou!</div> 
+<div style="color:#e0af55;font-size:30px">Est-ce que tu veux jouer au Scattegories?</div> 
+<button onclick="clickoui()"> Oui </button> <button onclick="clicknon()"> Non </button>
+<div id="output" style="margin-top:15px" class="mystyle"> </div>
+<br/>
+<br/>
+<button id="timerbutton" style= "display:none" onclick="clickcommencer()"> Commencer! </button>
+<div id="timer" style="margin-top:15px" class="mystyle2"> </div>
+
+
+
+
+
+<style> 
+.mystyle {
+    color: #33e6c5;
+    font-style: oblique;
+    font-weight: 1000;
+    font-size:100px;
+}
+.mystyle2 {
+    color: pink;
+    font-style: oblique;
+    font-weight: 1000;
+    font-size:100px;
+}
+</style>
+
+
+
+<script> 
+function clickoui(){
+  var charcode=Math.floor(Math.random()*26)+"A".charCodeAt(0)
+  var letter=String.fromCharCode(charcode)
+  var strListe="Liste: "
+  var listeno=Math.floor(Math.random()*12)+1
+  var strLetter="Lettre: "
+  var reponse='<div>'+strLetter+letter+"</div>"
+         +"<div>"+strListe+listeno+"</div>"
+  document.getElementById("output").innerHTML=reponse
+  document.getElementById("timerbutton").style.display="block"
+}
+function clicknon(){
+  alert("Bien... LA PEINE DE MORT!")
+}
+
+function clickcommencer(){
+  setTimeout(timerfunction,1000)
+}
+
+var i=3
+function timerfunction(){
+  i=i-1
+  document.getElementById("timer").innerHTML=i+" secondes"
+  if(i==0){
+     window.open("https://www.youtube.com/watch?v=Q3Kvu6Kgp88")
+  }
+  else {
+    setTimeout(timerfunction,1000)
+}
+  
+}
+   
+
+
+
+</script>
+</body>
